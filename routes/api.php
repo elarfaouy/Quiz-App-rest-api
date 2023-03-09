@@ -19,5 +19,6 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::apiResource("question", \App\Http\Controllers\QuestionController::class);
+Route::get('question/{question}/answers', [\App\Http\Controllers\QuestionController::class, 'show_answers']);
 Route::apiResource("option", \App\Http\Controllers\OptionController::class)->only(['store', 'update', 'destroy']);
 Route::apiResource("answer", \App\Http\Controllers\AnswerController::class)->only(['store', 'update', 'destroy']);
