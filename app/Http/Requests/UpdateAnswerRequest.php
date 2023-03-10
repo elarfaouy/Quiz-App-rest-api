@@ -13,7 +13,7 @@ class UpdateAnswerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateAnswerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'question_id' => ['required', 'integer', 'exists:App\Models\Question,id'],
+            'option_id' => ['required', 'integer', 'exists:App\Models\Option,id'],
         ];
     }
 }

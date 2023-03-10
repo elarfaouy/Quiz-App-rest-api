@@ -20,4 +20,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource("question", \App\Http\Controllers\QuestionController::class);
 Route::apiResource("option", \App\Http\Controllers\OptionController::class)->only(['store', 'update', 'destroy']);
-//Route::apiResource("answer", \App\Http\Controllers\AnswerController::class);
+Route::apiResource("answer", \App\Http\Controllers\AnswerController::class)->only(['store', 'update', 'destroy']);

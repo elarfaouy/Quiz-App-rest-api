@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreAnswerRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreAnswerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,8 @@ class StoreAnswerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'question_id' => ['required', 'integer', 'exists:App\Models\Question,id'],
+            'option_id' => ['required', 'integer', 'exists:App\Models\Option,id'],
         ];
     }
 }
