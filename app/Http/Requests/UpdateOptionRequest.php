@@ -13,7 +13,7 @@ class UpdateOptionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateOptionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'option' => 'required',
+            'question_id' => ['required', 'integer', 'exists:App\Models\Question,id'],
         ];
     }
 }
