@@ -18,7 +18,7 @@ class QuestionController extends Controller
      */
     public function index(): JsonResponse
     {
-        $questions = Question::all();
+        $questions = Question::inRandomOrder()->get();
 
         return response()->json([
             "status" => "success",
